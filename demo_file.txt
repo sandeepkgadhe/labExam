@@ -1,0 +1,161 @@
+package newpackage; 
+import org.openqa.selenium.WebDriver; 
+import org.openqa.selenium.chrome.ChromeDriver; 
+public class Myclas { 
+ public static void main(String[] args) { 
+System.setProperty("webdriver.chrome.driver","C:\\Users\\Ashutosh\\Downloads\\chromedriver_win32\\chromedriver.exe"); 
+WebDriver driver = new ChromeDriver(); 
+  
+ String baseUrl = "https://www.cdac.in/"; 
+ String expectedTitle = "C-DAC: Centre for Development of Advanced Computing, India"; 
+ String actualTitle = ""; 
+ driver.get(baseUrl); 
+  
+ actualTitle = driver.getTitle(); 
+if (actualTitle.contentEquals(expectedTitle)){ 
+ System.out.println("Test Passed!"); 
+ } else { 
+ System.out.println("Test Failed"); 
+ } 
+  
+ 
+driver.close(); 
+  
+ } 
+} 
+package newpackage; 
+import org.openqa.selenium.By; 
+import org.openqa.selenium.WebDriver; 
+import org.openqa.selenium.chrome.ChromeDriver; 
+public class Myclass { 
+public static void main(String[] args) { 
+System.setProperty("webdriver.chrome.driver","C:\\Users\\Ashutosh\\Downloads\\chromedriver_win32\\chromedriver.exe"); 
+WebDriver driver = new ChromeDriver(); 
+driver.get("https://demoqa.com/automation-practice-form"); 
+driver.findElement(By.id("firstName")); 
+
+driver.findElement(By.name("gender"));
+
+driver.findElement(By.className("practice-form-wrapper")); 
+driver.get("https://demoqa.com/links"); 
+driver.findElement(By.linkText("Home")); 
+driver.get("https://demoqa.com/text-box"); 
+driver.findElement(By.xpath("//input[@id='userName']")); 
+ driver.close(); 
+ }} } 
+
+package newpackage; 
+import org.openqa.selenium.By; 
+import org.openqa.selenium.WebDriver; 
+import org.openqa.selenium.chrome.ChromeDriver; 
+import org.openqa.selenium.*; 
+public class Myclass1 { 
+ public static void main(String[] args) { 
+ // declaration and instantiation of objects/variables 
+System.setProperty("webdriver.chrome.driver","C:\\Users\\Ashutosh\\Downloads\\chromedriver_win32\\chromedriver.exe"); 
+ WebDriver driver = new ChromeDriver(); 
+  
+ String baseUrl = "http://demo.guru99.com/test/login.html"; 
+ driver.get(baseUrl); 
+ WebElement email = driver.findElement(By.id("email")); 
+ WebElement password = driver.findElement(By.id("passwd")); 
+  email.sendKeys("abcd@gmail.com"); 
+password.sendKeys("abcdefghlkjl"); 
+ System.out.println("Text Field Set"); 
+  
+ 
+email.clear(); 
+password.clear(); 
+ System.out.println("Text Field Cleared"); 
+
+ WebElement login = driver.findElement(By.id("SubmitLogin")); 
+
+email.sendKeys("abcd@gmail.com"); 
+password.sendKeys("abcdefghlkjl");
+ login.click(); 
+ System.out.println("Login Done with Click"); 
+ driver.close();  
+ } } 
+
+
+package newpackage; 
+import org.openqa.selenium.By; 
+import org.openqa.selenium.WebDriver; 
+import org.openqa.selenium.chrome.ChromeDriver; 
+import org.openqa.selenium.*; 
+public class Myclass2 { 
+ public static void main(String[] args) { 
+ 
+System.setProperty("webdriver.chrome.driver","C:\\Users\\Ashutosh\\Downloads\\chromedriver_win32\\chromedriver.exe"); 
+ WebDriver driver = new ChromeDriver(); 
+ driver.get("http://demo.guru99.com/test/radio.html"); WebElement  radio1 = driver.findElement(By.id("vfb-7-1")); 
+ WebElement radio2 = driver.findElement(By.id("vfb-7-2")); 
+ //Radio Button1 is selected 
+radio1.click(); 
+ System.out.println("Radio Button Option 1 Selected"); 
+ 
+//Radio Button1 is de-selected and Radio Button2 is selected 
+radio2.click(); 
+ System.out.println("Radio Button Option 2 Selected"); 
+ // Selecting CheckBox 
+ WebElement option1 = driver.findElement(By.id("vfb-6-0")); 
+ // This will Toggle the Check box  
+option1.click(); 
+// Check whether the Check box is toggled on  
+if (option1.isSelected()) { 
+ System.out.println("Checkbox is Toggled On"); 
+ } else { 
+ System.out.println("Checkbox is Toggled Off");
+ } 
+  driver.close(); 
+ }} 
+
+
+package newpackage; 
+import org.openqa.selenium.By; 
+import org.openqa.selenium.WebDriver; 
+import org.openqa.selenium.chrome.ChromeDriver; 
+import org.openqa.selenium.*; 
+import org.openqa.selenium.support.ui.Select; 
+public class Myclass3 { 
+public static void main(String[] args) {  
+System.setProperty("webdriver.chrome.driver","C:\\Users\\Ashutosh\\Downloads\\chromedriver_win32\\chromedriver.exe"); 
+ String baseURL = "http://demo.guru99.com/test/newtours/register.php";  WebDriver driver = new ChromeDriver(); 
+ driver.get(baseURL); 
+Select drpCountry = new Select(driver.findElement(By.name("country"))); 
+drpCountry.selectByVisibleText("ANTARCTICA"); 
+drpCountry.selectByIndex(1); 
+drpCountry.selectByValue("ANTARCTICA"); 
+driver.close(); 
+ } 
+}
+
+
+package newpackage; 
+import org.openqa.selenium.By; 
+import org.openqa.selenium.WebDriver; 
+import org.openqa.selenium.chrome.ChromeDriver; 
+import org.openqa.selenium.*; 
+import org.openqa.selenium.interactions.Action; 
+import org.openqa.selenium.interactions.Actions; 
+public class Myclass4 { 
+public static void main(String[] args) { 
+String baseUrl = "http://www.facebook.com/"; 
+System.setProperty("webdriver.chrome.driver","C:\\Users\\Ashutosh\\Downloads\\chromedriver_win32\\chromedriver.exe"); 
+WebDriver driver = new ChromeDriver(); 
+driver.get(baseUrl); 
+WebElement txtUsername = driver.findElement(By.id("email")); 
+Actions builder = new Actions(driver); 
+Action seriesOfActions = builder 
+.moveToElement(txtUsername) 
+.click() 
+.keyDown(txtUsername, Keys.SHIFT) 
+.sendKeys(txtUsername, "hello") 
+.keyUp(txtUsername, Keys.SHIFT) 
+.doubleClick(txtUsername) 
+.contextClick() 
+.build(); 
+seriesOfActions.perform() ; 
+driver.close(); 
+} 
+} 
