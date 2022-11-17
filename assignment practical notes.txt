@@ -1,0 +1,507 @@
+shamita	5000
+rajesh	5600
+RAJESH	3200
+renu	2800
+john	3500
+[root@localhost dir3]# cut -2-3 employee|head -1 employee;cut -f2-3 employee|head -5
+eid	ename	salery	age	designation
+cut: invalid option -- '2'
+Try `cut --help' for more information.
+ename	salery
+shamita	5000
+rajesh	5600
+RAJESH	3200
+renu	2800
+[root@localhost dir3]# cut -2-3 employee|head -1 employee;cut -f2,3 employee|head -5
+eid	ename	salery	age	designation
+cut: invalid option -- '2'
+Try `cut --help' for more information.
+ename	salery
+shamita	5000
+rajesh	5600
+RAJESH	3200
+renu	2800
+[root@localhost dir3]# cut -f2,3 employee|head -1;cut -f2,3 employee|more +2 -6
+ename	salery
+shamita	5000
+rajesh	5600
+RAJESH	3200
+renu	2800
+john	3500
+kiran	4200
+[root@localhost dir3]#  cut -f2,3 employee|head -1;cut -f2,3 employee|more +2 -6
+ename	salery
+shamita	5000
+rajesh	5600
+RAJESH	3200
+renu	2800
+john	3500
+kiran	4200
+[root@localhost dir3]#  cut -f1,4,5 employee|head -1;cut -f1,4,5 employee|more +2 -6
+eid	age	designation
+110	45	manager
+107	52	sr.manager
+103	23	programmer
+101	30	programmer
+109	30	support
+102	33	programmer
+[root@localhost dir3]# cut -f1,4,5 employee|head -1;cut -f1,4,5 employee|more +2 -5
+eid	age	designation
+110	45	manager
+107	52	sr.manager
+103	23	programmer
+101	30	programmer
+109	30	support
+[root@localhost dir3]# cut -f2,3 employee|head -1;cut -f2,3 employee|more +10 -12
+ename	salery
+anu	4300
+diksha	3200
+ishan	2100
+[root@localhost dir3]# cat employee|sort
+101	renu	2800	30	programmer
+102	kiran	4200	33	programmer
+103	RAJESH	3200	23	programmer
+104	kuman	5600	45	manager
+107	rajesh	5600	52	sr.manager
+108	amit	3800	37	manager
+109	john	3500	30	support
+110	shamita	5000	45	manager
+111	anu	4300	35	programmer
+116	diksha	3200	32	dba
+129	ishan	2100	21	support
+eid	ename	salery	age	designation
+[root@localhost dir3]# cat employee|sort -nr
+129	ishan	2100	21	support
+116	diksha	3200	32	dba
+111	anu	4300	35	programmer
+110	shamita	5000	45	manager
+109	john	3500	30	support
+108	amit	3800	37	manager
+107	rajesh	5600	52	sr.manager
+104	kuman	5600	45	manager
+103	RAJESH	3200	23	programmer
+102	kiran	4200	33	programmer
+101	renu	2800	30	programmer
+eid	ename	salery	age	designation
+[root@localhost dir3]# more 
+usage: more [-dflpcsu] [+linenum | +/pattern] name1 name2 ...
+[root@localhost dir3]# 
+[root@localhost dir3]# 
+[root@localhost dir3]# 
+[root@localhost dir3]# 
+[root@localhost dir3]# 
+[root@localhost dir3]# 
+[root@localhost dir3]# 
+[root@localhost dir3]# 
+[root@localhost dir3]# 
+[root@localhost dir3]# 
+[root@localhost dir3]# 
+[root@localhost dir3]# 
+[root@localhost dir3]# more 
+usage: more [-dflpcsu] [+linenum | +/pattern] name1 name2 ...
+[root@localhost dir3]# more +2 employee
+110	shamita	5000	45	manager
+107	rajesh	5600	52	sr.manager
+103	RAJESH	3200	23	programmer
+101	renu	2800	30	programmer
+109	john	3500	30	support
+102	kiran	4200	33	programmer
+108	amit	3800	37	manager
+104	kuman	5600	45	manager
+111	anu	4300	35	programmer
+116	diksha	3200	32	dba
+129	ishan	2100	21	support
+[root@localhost dir3]# more +2 employee|sort -n
+101	renu	2800	30	programmer
+102	kiran	4200	33	programmer
+103	RAJESH	3200	23	programmer
+104	kuman	5600	45	manager
+107	rajesh	5600	52	sr.manager
+108	amit	3800	37	manager
+109	john	3500	30	support
+110	shamita	5000	45	manager
+111	anu	4300	35	programmer
+116	diksha	3200	32	dba
+129	ishan	2100	21	support
+[root@localhost dir3]# 
+[root@localhost dir3]# head -1 employee;more +2 employee|sort -rk2
+eid	ename	salery	age	designation
+110	shamita	5000	45	manager
+101	renu	2800	30	programmer
+107	rajesh	5600	52	sr.manager
+103	RAJESH	3200	23	programmer
+104	kuman	5600	45	manager
+102	kiran	4200	33	programmer
+109	john	3500	30	support
+129	ishan	2100	21	support
+116	diksha	3200	32	dba
+111	anu	4300	35	programmer
+108	amit	3800	37	manager
+[root@localhost dir3]# cut -f2,3 employee|head -1;cut -f2,3 employee|more +10 -12|sort -nk2
+ename	salery
+ename	salery
+ishan	2100
+renu	2800
+diksha	3200
+RAJESH	3200
+john	3500
+amit	3800
+kiran	4200
+anu	4300
+shamita	5000
+kuman	5600
+rajesh	5600
+[root@localhost dir3]# cut -f2,3 employee|head -1;cut -f2,3 employee|sort -nk2|more +10 -12
+ename	salery
+shamita	5000
+kuman	5600
+rajesh	5600
+[root@localhost dir3]# cut -f2,3 employee|head -1;cut -f2,3 employee|sort -nk1|more +10 -12
+ename	salery
+rajesh	5600
+renu	2800
+shamita	5000
+[root@localhost dir3]# cut -f1,4,5 employee|head -1;cut -f1,4,5 employee|more +2 -5
+eid	age	designation
+110	45	manager
+107	52	sr.manager
+103	23	programmer
+101	30	programmer
+109	30	support
+[root@localhost dir3]# head -1 employee;more +2 -3 employee|sort -rk3 
+eid	ename	salery	age	designation
+107	rajesh	5600	52	sr.manager
+104	kuman	5600	45	manager
+110	shamita	5000	45	manager
+111	anu	4300	35	programmer
+102	kiran	4200	33	programmer
+108	amit	3800	37	manager
+109	john	3500	30	support
+116	diksha	3200	32	dba
+103	RAJESH	3200	23	programmer
+101	renu	2800	30	programmer
+129	ishan	2100	21	support
+[root@localhost dir3]# head -1 employee;more +3 -5 employee|sort -nk3
+eid	ename	salery	age	designation
+129	ishan	2100	21	support
+101	renu	2800	30	programmer
+103	RAJESH	3200	23	programmer
+116	diksha	3200	32	dba
+109	john	3500	30	support
+108	amit	3800	37	manager
+102	kiran	4200	33	programmer
+111	anu	4300	35	programmer
+104	kuman	5600	45	manager
+107	rajesh	5600	52	sr.manager
+[root@localhost dir3]# head -1 employee|sort -rk3;more +3 -5 employee
+eid	ename	salery	age	designation
+107	rajesh	5600	52	sr.manager
+103	RAJESH	3200	23	programmer
+101	renu	2800	30	programmer
+109	john	3500	30	support
+102	kiran	4200	33	programmer
+[root@localhost dir3]#  head -1 employee|sort -rk2;more +2 -3 employee
+eid	ename	salery	age	designation
+110	shamita	5000	45	manager
+107	rajesh	5600	52	sr.manager
+103	RAJESH	3200	23	programmer
+[root@localhost dir3]# head -1 employee|sort -nk3;more +2 -3 employee
+eid	ename	salery	age	designation
+110	shamita	5000	45	manager
+107	rajesh	5600	52	sr.manager
+103	RAJESH	3200	23	programmer
+[root@localhost dir3]# head -1 employee|sort -nk4;more +2 -3 employee
+eid	ename	salery	age	designation
+110	shamita	5000	45	manager
+107	rajesh	5600	52	sr.manager
+103	RAJESH	3200	23	programmer
+101	renu	2800	30	programmer
+109	john	3500	30	support
+102	kiran	4200	33	programmer
+[root@localhost dir3]# head -1 employee|sort -nk3|more +2 -3 employee
+[root@localhost dir3]# cat employee
+eid	ename	salery	age	designation
+110	shamita	5000	45	manager
+107	rajesh	5600	52	sr.manager
+103	RAJESH	3200	23	programmer
+101	renu	2800	30	programmer
+109	john	3500	30	support
+102	kiran	4200	33	programmer
+108	amit	3800	37	manager
+104	kuman	5600	45	manager
+111	anu	4300	35	programmer
+116	diksha	3200	32	dba
+129	ishan	2100	21	support
+[root@localhost dir3]# cat employee|head -1
+eid	ename	salery	age	designation
+[root@localhost dir3]# cat employee|head -1;more +2
+eid	ename	salery	age	designation
+usage: more [-dflpcsu] [+linenum | +/pattern] name1 name2 ...
+[root@localhost dir3]# cat employee|head -1;more +2 employee
+eid	ename	salery	age	designation
+110	shamita	5000	45	manager
+107	rajesh	5600	52	sr.manager
+103	RAJESH	3200	23	programmer
+101	renu	2800	30	programmer
+109	john	3500	30	support
+102	kiran	4200	33	programmer
+108	amit	3800	37	manager
+104	kuman	5600	45	manager
+111	anu	4300	35	programmer
+116	diksha	3200	32	dba
+129	ishan	2100	21	support
+[root@localhost dir3]# cat employee|head -1;more +2 employee|sort -nrk3|head -3
+eid	ename	salery	age	designation
+107	rajesh	5600	52	sr.manager
+104	kuman	5600	45	manager
+110	shamita	5000	45	manager
+[root@localhost dir3]# cat employee|head -1;more +2 employee|sort -nk3|head -3
+eid	ename	salery	age	designation
+129	ishan	2100	21	support
+101	renu	2800	30	programmer
+103	RAJESH	3200	23	programmer
+[root@localhost dir3]# cat employee
+eid	ename	salery	age	designation
+110	shamita	5000	45	manager
+107	rajesh	5600	52	sr.manager
+103	RAJESH	3200	23	programmer
+101	renu	2800	30	programmer
+109	john	3500	30	support
+102	kiran	4200	33	programmer
+108	amit	3800	37	manager
+104	kuman	5600	45	manager
+111	anu	4300	35	programmer
+116	diksha	3200	32	dba
+129	ishan	2100	21	support
+[root@localhost dir3]# cut f3 employee|sort|head -1;more +2
+cut: you must specify a list of bytes, characters, or fields
+Try `cut --help' for more information.
+usage: more [-dflpcsu] [+linenum | +/pattern] name1 name2 ...
+[root@localhost dir3]# cut f3 employee|head -1;more +2|sort
+cut: you must specify a list of bytes, characters, or fields
+Try `cut --help' for more information.
+usage: more [-dflpcsu] [+linenum | +/pattern] name1 name2 ...
+[root@localhost dir3]# cut f3 employee|head -1;
+cut: you must specify a list of bytes, characters, or fields
+Try `cut --help' for more information.
+[root@localhost dir3]# cut f3 employee
+cut: you must specify a list of bytes, characters, or fields
+Try `cut --help' for more information.
+[root@localhost dir3]# cut -f3 employee
+salery
+5000
+5600
+3200
+2800
+3500
+4200
+3800
+5600
+4300
+3200
+2100
+[root@localhost dir3]# cut -f3 employee|sort
+2100
+2800
+3200
+3200
+3500
+3800
+4200
+4300
+5000
+5600
+5600
+salery
+[root@localhost dir3]# cut -f3|head -1|sort
+^Z
+[6]+  Stopped                 cut -f3 | head -1 | sort
+[root@localhost dir3]# cut -f3 employee|head -1|sort
+salery
+[root@localhost dir3]# cut -f3 employee|head -1;more +2|sort
+salery
+usage: more [-dflpcsu] [+linenum | +/pattern] name1 name2 ...
+[root@localhost dir3]# cut -f3 employee|head -1;cut -f3 employee|sort
+salery
+2100
+2800
+3200
+3200
+3500
+3800
+4200
+4300
+5000
+5600
+5600
+salery
+[root@localhost dir3]#  cut -f2 employee|head -1;cut -f2 employee|sort
+ename
+amit
+anu
+diksha
+ename
+ishan
+john
+kiran
+kuman
+rajesh
+RAJESH
+renu
+shamita
+[root@localhost dir3]# cut -f2,4 employee|head -1;cut -f2,4 employee|sort;more +2 -2
+ename	age
+amit	37
+anu	35
+diksha	32
+ename	age
+ishan	21
+john	30
+kiran	33
+kuman	45
+RAJESH	23
+rajesh	52
+renu	30
+shamita	45
+usage: more [-dflpcsu] [+linenum | +/pattern] name1 name2 ...
+[root@localhost dir3]# cut -f2,4 employee|head -1;cut -f2,4 employee|sort;more +2 -2 employee
+ename	age
+amit	37
+anu	35
+diksha	32
+ename	age
+ishan	21
+john	30
+kiran	33
+kuman	45
+RAJESH	23
+rajesh	52
+renu	30
+shamita	45
+110	shamita	5000	45	manager
+107	rajesh	5600	52	sr.manager
+[root@localhost dir3]# clear
+
+[root@localhost dir3]#  cut -f2,4 employee|head -1;cut -f2,4 employee|sort
+ename	age
+amit	37
+anu	35
+diksha	32
+ename	age
+ishan	21
+john	30
+kiran	33
+kuman	45
+RAJESH	23
+rajesh	52
+renu	30
+shamita	45
+[root@localhost dir3]#  cut -f2,4 employee|head -1;cut -f2,4 employee|sort -nk2;more +2 -2 employee
+ename	age
+ename	age
+ishan	21
+RAJESH	23
+john	30
+renu	30
+diksha	32
+kiran	33
+anu	35
+amit	37
+kuman	45
+shamita	45
+rajesh	52
+110	shamita	5000	45	manager
+107	rajesh	5600	52	sr.manager
+[root@localhost dir3]#  cut -f2,4 employee|head -1;cut -f2,4 employee|sort
+ename	age
+amit	37
+anu	35
+diksha	32
+ename	age
+ishan	21
+john	30
+kiran	33
+kuman	45
+RAJESH	23
+rajesh	52
+renu	30
+shamita	45
+[root@localhost dir3]#  cut -f2,4 employee|head -1;cut -f2,4 employee|sort -nk2
+ename	age
+ename	age
+ishan	21
+RAJESH	23
+john	30
+renu	30
+diksha	32
+kiran	33
+anu	35
+amit	37
+kuman	45
+shamita	45
+rajesh	52
+[root@localhost dir3]# cut -f2,4 employee|sort -nk2;more +2 -2
+ename	age
+ishan	21
+RAJESH	23
+john	30
+renu	30
+diksha	32
+kiran	33
+anu	35
+amit	37
+kuman	45
+shamita	45
+rajesh	52
+usage: more [-dflpcsu] [+linenum | +/pattern] name1 name2 ...
+[root@localhost dir3]# cut -f2,4 employee;more +2 -2|sort -nk2
+ename	age
+shamita	45
+rajesh	52
+RAJESH	23
+renu	30
+john	30
+kiran	33
+amit	37
+kuman	45
+anu	35
+diksha	32
+ishan	21
+usage: more [-dflpcsu] [+linenum | +/pattern] name1 name2 ...
+[root@localhost dir3]# cut -f2,4|sort -nk2
+^Z
+[7]+  Stopped                 cut -f2,4 | sort -nk2
+[root@localhost dir3]# cut -f2,4 employee|sort -nk2
+ename	age
+ishan	21
+RAJESH	23
+john	30
+renu	30
+diksha	32
+kiran	33
+anu	35
+amit	37
+kuman	45
+shamita	45
+rajesh	52
+[root@localhost dir3]# cut -f2,4 employee|sort -nk2|more +2 -2 employee
+ishan	21
+RAJESH	23
+[root@localhost dir3]# cut -f2,4 employee;head -1|sort -nk2|more +2 -2 employee
+ename	age
+shamita	45
+rajesh	52
+RAJESH	23
+renu	30
+john	30
+kiran	33
+amit	37
+kuman	45
+anu	35
+diksha	32
+ishan	21
+
+[8]+  Stopped                 head -1 | sort -nk2 | more +2 -2 employee
+[root@localhost dir3]# cut -f2,4 employee|sort -nk2|more +2 -2 employee
+ishan	21
+RAJESH	23
